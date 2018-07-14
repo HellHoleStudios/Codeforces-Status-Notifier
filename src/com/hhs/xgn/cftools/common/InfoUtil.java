@@ -14,14 +14,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -47,12 +43,9 @@ public class InfoUtil {
     private JLabel close = null; // 关闭按钮
     private JTextArea feature = null; // 内容
     private JScrollPane jfeaPan = null;
-    private JLabel releaseLabel = null; // 发布时间
     private JButton sure = null;
     private String titleT = null;
     private String word = null;
-    private String time = null;
-
     public String website="";
     // private SimpleDateFormat sdf = new
     // SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -61,16 +54,16 @@ public class InfoUtil {
         // 新建300x220的消息提示框
         tw = new TipWindow(300, 180);
         img = new ImageIcon("assets/bg.jpg");//最好写相对路径
-        img=new ImageIcon(img.getImage().getScaledInstance(500, 500, Image.SCALE_DEFAULT));
+        img=new ImageIcon(img.getImage().getScaledInstance(300, 180, Image.SCALE_DEFAULT));
         
         imgLabel = new JLabel(img);
         // 设置各个面板的布局以及面板中控件的边界
         headPan = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         feaPan = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         btnPan = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        title = new JLabel("欢迎使用本系统");
+        title = new JLabel("Welcome");
         head = new JLabel(titleT);
-        close = new JLabel(" x");
+        close = new JLabel("X");
         feature = new JTextArea(word);
         jfeaPan = new JScrollPane(feature);
         // releaseLabel = new JLabel("发布于  " + time);
@@ -95,25 +88,25 @@ public class InfoUtil {
         title.setPreferredSize(new Dimension(260, 26));
         title.setVerticalTextPosition(JLabel.CENTER);
         title.setHorizontalTextPosition(JLabel.CENTER);
-        title.setFont(new Font("宋体", Font.PLAIN, 12));
+        title.setFont(new Font("Consolas", Font.PLAIN, 12));
         title.setForeground(Color.black);
 
-        close.setFont(new Font("Arial", Font.BOLD, 15));
+        close.setFont(new Font("Consolas", Font.BOLD, 15));
         close.setPreferredSize(new Dimension(20, 20));
         close.setVerticalTextPosition(JLabel.CENTER);
         close.setHorizontalTextPosition(JLabel.CENTER);
         close.setCursor(new Cursor(12));
-        close.setToolTipText("关闭");
+        close.setToolTipText("Close");
 
         head.setPreferredSize(new Dimension(250, 35));
         head.setVerticalTextPosition(JLabel.CENTER);
         head.setHorizontalTextPosition(JLabel.CENTER);
-        head.setFont(new Font("宋体", Font.PLAIN, 14));
+        head.setFont(new Font("Consolas", Font.PLAIN, 14));
         head.setForeground(Color.black);
 
         feature.setEditable(false);
         feature.setForeground(Color.BLACK);
-        feature.setFont(new Font("宋体", Font.PLAIN, 14));
+        feature.setFont(new Font("Consolas", Font.PLAIN, 14));
         feature.setBackground(new Color(255, 255, 255));
         // 设置文本域自动换行
         feature.setLineWrap(true);
@@ -218,7 +211,7 @@ public class InfoUtil {
         tw.setAlwaysOnTop(true);
         tw.setUndecorated(true);
         tw.setResizable(false);
-        sure.setText("好的");
+        sure.setText("OK");
         tw.setVisible(true);
         tw.run();
     }
@@ -233,7 +226,7 @@ public class InfoUtil {
         tw.setAlwaysOnTop(true);
         tw.setUndecorated(true);
         tw.setResizable(false);
-        sure.setText("查看");
+        sure.setText("View");
         tw.setVisible(true);
         tw.run();
     }

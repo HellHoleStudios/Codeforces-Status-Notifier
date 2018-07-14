@@ -7,7 +7,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hhs.xgn.cftools.common.FullSubmission;
 import com.hhs.xgn.cftools.common.InfoUtil;
-import com.hhs.xgn.cftools.common.Submission;
 import com.hhs.xgn.cftools.common.WebPageSource;
 
 public class SubmitNotice {
