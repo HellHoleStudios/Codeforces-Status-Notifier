@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
@@ -29,7 +29,8 @@ public class MovingWindow extends JDialog {
 
 	MovingWindow self = this;
 
-	JLabel user, pid, sta, tc;
+	JLabel user, pid, sta, tc, bg;
+	ImageIcon bgimg;
 
 	String handle;
 
@@ -51,9 +52,9 @@ public class MovingWindow extends JDialog {
 		this.handle = handle;
 
 		this.setTitle("Moving Window");
-		this.setLayout(new GridLayout(1, 4));
 		this.setAlwaysOnTop(true);
-		getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.gray));
+		// getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1,
+		// Color.gray));
 
 		// JButton close=new JButton("close");
 		// close.addActionListener(new ActionListener() {
@@ -220,15 +221,34 @@ public class MovingWindow extends JDialog {
 			}
 		});
 
+		user.setBounds(0, 0, 120, 30);
+		pid.setBounds(120, 0, 60, 30);
+		sta.setBounds(180, 0, 60, 30);
+		tc.setBounds(240, 0, 60, 30);
+
 		user.setFont(new Font("Consolas", Font.BOLD, 15));
 		pid.setFont(new Font("Consolas", Font.PLAIN, 15));
 		sta.setFont(new Font("Consolas", Font.PLAIN, 15));
 		tc.setFont(new Font("Consolas", Font.ITALIC, 15));
 
+		((JPanel)this.getContentPane()).setOpaque(false);
+		user.setOpaque(false);
+		pid.setOpaque(false);
+		sta.setOpaque(false);
+		tc.setOpaque(false);
+		
+		bgimg = new ImageIcon("assets/bg2.jpg");
+		bgimg = new ImageIcon(bgimg.getImage().getScaledInstance(300, 30, Image.SCALE_DEFAULT));
+
+		bg = new JLabel(bgimg);
+		bg.setBounds(0, 0, 300, 30);
+		this.getLayeredPane().add(bg, new Integer(Integer.MIN_VALUE));
+		this.getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.gray));
+		
 		this.add(user);
-		add(pid);
-		add(sta);
-		add(tc);
+		this.add(pid);
+		this.add(sta);
+		this.add(tc);
 
 		setId(num);
 		this.setUndecorated(true);
@@ -252,7 +272,6 @@ public class MovingWindow extends JDialog {
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
