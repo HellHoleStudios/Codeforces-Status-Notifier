@@ -51,7 +51,7 @@ public class MovingWindow extends JDialog {
 
 		this.handle = handle;
 
-		this.setTitle("Moving Window");
+		//this.setTitle("Moving Window");
 		this.setAlwaysOnTop(true);
 		// getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1,
 		// Color.gray));
@@ -221,6 +221,8 @@ public class MovingWindow extends JDialog {
 			}
 		});
 
+		this.setUndecorated(true);
+		
 		user.setBounds(0, 0, 120, 30);
 		pid.setBounds(120, 0, 60, 30);
 		sta.setBounds(180, 0, 60, 30);
@@ -239,11 +241,13 @@ public class MovingWindow extends JDialog {
 		
 		bgimg = new ImageIcon("assets/bg2.jpg");
 		bgimg = new ImageIcon(bgimg.getImage().getScaledInstance(300, 30, Image.SCALE_DEFAULT));
-
 		bg = new JLabel(bgimg);
 		bg.setBounds(0, 0, 300, 30);
-		this.getLayeredPane().add(bg, new Integer(Integer.MIN_VALUE));
 		this.getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.gray));
+		this.setOpacity(0.75f);
+		this.getRootPane ().setOpaque (false);
+		this.getLayeredPane().add(bg, Integer.MIN_VALUE);
+		
 		
 		this.add(user);
 		this.add(pid);
@@ -251,7 +255,6 @@ public class MovingWindow extends JDialog {
 		this.add(tc);
 
 		setId(num);
-		this.setUndecorated(true);
 		this.setVisible(true);
 
 		Thread t = new Thread() {
