@@ -8,7 +8,7 @@ When others submit and get a result, you will be notified and system will show y
 
 Command Line: ```java -jar SubmitNoticer.jar Namelist CheckInterval```
 
-*NameList* is a string of Codeforces usernames to check, spilt by spaces.
+*NameList* is a string of Codeforces usernames to check, split by spaces.
 
 *CheckInterval* is the interval of checking by seconds, recommended 10.
 
@@ -25,14 +25,14 @@ This actually covered the function of Submit Notifier. You can use this only.
 
 Command Line: ```java -jar MovingStatus.jar Namelist```
 
-*NameList* is a string of Codeforces usernames to check, spilt by spaces.
+*NameList* is a string of Codeforces usernames to check, split by spaces.
 
 You can start the program with no arguments too and the program will ask you about the information.
 
 **You can also see the samples.**
 
 # How does it work?
-Thanks for Mike and the wonderful Codefroces API, we can get the status by program.
+Thanks for Mike and the wonderful Codeforces API, we can get the status by program.
 
 # Current problems
 Sometimes it won't work when you submit for the first time after the program runs. We currently don't know the reason.
@@ -52,6 +52,6 @@ This tools also contain **User collect** and **Get Solution** tools.
 
 **User collect** will collect your submission data and make some conclusions. 
 
-**Get Soltuion** will download one's accepted solutions. 
+**Get Solution** will download one's accepted solutions. 
 
 **Experimental Functions are dangerous!Use them carefully**
